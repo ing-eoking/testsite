@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: testsite
+  template:
+    metadata:
+      labels:
+        app: testsite
+    spec:
+      containers:
+      - name: nginx
+        image: ieek/testsite:latest
+        ports:
+        - containerPort: 80
